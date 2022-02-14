@@ -5,53 +5,43 @@
 #                                                     +:+ +:+         +:+      #
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/02/14 22:54:39 by shaas            ###   ########.fr        #
+#    Created: 2021/06/25 11:26:14 by shaas             #+#    #+#              #
+#    Updated: 2021/07/14 20:28:01 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = libft.a
 
-COMP = gcc -Wall -Wextra -Werror
+COMP = gcc -Wall -Wextra -Werror -c
 
-LIBFT = libft/libft.a
+C_FILES = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
+ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
+ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
+ft_tolower.c ft_toupper.c ft_calloc.c ft_strdup.c ft_strjoin.c ft_substr.c ft_strtrim.c \
+ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
+ft_strmapi.c ft_split.c ft_striteri.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
+ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-SRC := push_swap.c parse_input.c list_handlers/ps_lstnew.c list_handlers/ps_lstinit.c \
-list_handlers/ps_lstadd_back.c error_exit.c
+O_FILES = $(C_FILES:.c=.o)
 
-OBJ = $(SRC:.c=.o)
-
-ARG = 1 2 3 4 5 6 "  848  444   8  28383   838  " 3324 55 " 383   29  44422 2 " 3
-
+# rules #
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ)
-	@printf $(YELLOW)"*--------object files created!---------*\n\n"$(RESET)
-	$(COMP) $(OBJ) $(LIBFT) -o $(NAME)
-	@printf $(LIGHTGREEN)"*--------executable created!-----------*\n\n"$(RESET)
-
 %.o: %.c
-	$(COMP) -o $@ -c $<
+	@$(COMP) $< -o $@
 
-$(LIBFT):
-	@printf $(LIGHTBLUE)"*--------checking libft...-------------*\n\n"$(RESET)
-	@make -C ./libft
-
-exec:
-	@printf $(MAGENTA)"*--------executing program!------------*\n\n"$(RESET)
-	./$(NAME) $(ARG)
-
-both: $(NAME) exec
+$(NAME): $(O_FILES)
+	@printf $(LIGHTBLUE)"*--------libtft compiled!--------------*\n\n"$(RESET)
+	@ar rc $(NAME) $(O_FILES)
+	@printf $(LIGHTBLUE)"*--------library created!--------------*\n\n"$(RESET)
 
 clean:
-	rm -rf $(OBJ)
-	make -C ./libft clean
-	@printf $(RED)"*--------object files removed!---------*\n\n"$(RESET)
+	@rm -f $(O_FILES)
+	@printf $(LIGHTBLUE)"*--------libft object files removed!---*\n\n"$(RESET)
 
 fclean: clean
-	rm -rf $(NAME)
-	make -C ./libft fclean
-	@printf $(RED)"*--------$(NAME) removed!--------------*\n\n"$(RESET)
+	@rm -f $(NAME)
+	@printf $(LIGHTBLUE)"*--------$(NAME) removed!--------------*\n\n"$(RESET)
 
 re: fclean all
 

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ps_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 20:12:36 by shaas             #+#    #+#             */
-/*   Updated: 2021/07/19 19:51:13 by shaas            ###   ########.fr       */
+/*   Created: 2021/07/12 20:16:15 by shaas             #+#    #+#             */
+/*   Updated: 2022/02/14 17:22:43 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	if (new != NULL)
+	t_list	*curr;
+	int		count;
+
+	curr = lst;
+	count = 0;
+	while (curr != NULL)
 	{
-		new->next = *lst;
-		*lst = new;
+		count++;
+		curr = curr->next;
 	}
+	return (count);
 }

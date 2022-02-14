@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ps_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 23:59:41 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 20:10:06 by shaas            ###   ########.fr       */
+/*   Created: 2021/07/12 20:12:36 by shaas             #+#    #+#             */
+/*   Updated: 2022/02/14 17:22:43 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	stack_a;
-	//t_list	stack_b;
-
-	parse_input(argc, argv, &stack_a);
+	if (new != NULL)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
-
-/*
-printf("\e[96mhere?\e[0m\n");
-*/

@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 13:25:39 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 11:00:56 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/14 22:03:15 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-typedef struct s_list
-{
-	t_list	*prev;
-	int		num;
-	t_list	*next;
-}				t_list;
 
 /*checks if char is certain type of character*/
 int		ft_isalnum(int c);
@@ -46,6 +39,8 @@ void	*ft_memchr(const void *s, int c, size_t n);
 
 /*finds char in string*/
 char	*ft_strchr(const char *s, int c);
+/*finds digit in string*/
+char	*ft_strdigit(const char *s);
 
 /*finds last occurence of char in string*/
 char	*ft_strrchr(const char *s, int c);
@@ -110,32 +105,5 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 /*💭 applies function to every char of string, allocates result*/
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
-
-/*💭 create new linked list, return pointer to it*/
-t_list	ft_lstnew(int num);
-
-/*add element to front of list*/
-void	ft_lstadd_front(t_list **lst, t_list *new);
-
-/*give amount of elements in list*/
-int		ft_lstsize(t_list *lst);
-
-/*return pointer to last element in list*/
-t_list	*ft_lstlast(t_list *lst);
-
-/*add element to end of list*/
-void	ft_lstadd_back(t_list **lst, t_list *new);
-
-/*apply function del to element lst, meaning it'll be freed*/
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-
-/*frees every element of list, sets pointer to NULL*/
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-
-/*applies function to every content of every element of list*/
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-
-/*💭 applies function to every content,but creates seperate list for that*/
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

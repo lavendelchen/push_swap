@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ps_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 20:15:21 by shaas             #+#    #+#             */
-/*   Updated: 2021/07/14 19:28:15 by shaas            ###   ########.fr       */
+/*   Created: 2021/07/12 20:15:09 by shaas             #+#    #+#             */
+/*   Updated: 2022/02/14 17:22:43 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (lst != NULL && del != NULL)
+	t_list	*curr;
+	t_list	*curr2;
+
+	if (del != NULL)
 	{
-		del(lst->content);
-		free(lst);
+		curr = *lst;
+		while (curr != NULL)
+		{
+			curr2 = curr->next;
+			ft_lstdelone(curr, del);
+			curr = curr2;
+		}
+		*lst = NULL;
 	}
 }

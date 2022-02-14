@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 14:34:43 by shaas             #+#    #+#             */
-/*   Updated: 2021/07/06 13:14:49 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/14 22:37:59 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,27 @@ char	*ft_strtrim(const char *s1, const char *set)
 	trim[k] = '\0';
 	return (trim);
 }
+
+/*har	*ft_strtrim(const char *s1, const char *set)
+{
+	char	*trim;
+	size_t	len;
+	int		i;
+	int		j;
+
+	j = 0;
+	i = 0;
+	len = ft_strlen(s1);
+	trim = (char *)malloc(len + 1);
+	if (trim == NULL)
+		return (trim);
+	while (s1[i] != '\0' && ft_strchr(set, s1[i]) != NULL)
+		i++;
+	while (s1[i] != '\0' && (ft_strchr(set, s1[i]) && ))
+	{
+		trim[j] = s1[i];
+		j++;
+		i++;
+	}
+
+}*/

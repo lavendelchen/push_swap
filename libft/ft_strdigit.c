@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strdigit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 20:14:53 by shaas             #+#    #+#             */
-/*   Updated: 2021/07/19 19:50:37 by shaas            ###   ########.fr       */
+/*   Created: 2022/02/14 22:00:59 by shaas             #+#    #+#             */
+/*   Updated: 2022/02/14 22:09:54 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+char	*ft_strdigit(const char *s)
 {
-	t_list	*last;
-
-	if (new != NULL)
+	if (s == NULL)
+		return (NULL);
+	while (*s != '\0')
 	{
-		last = ft_lstlast(*lst);
-		if (last == NULL)
-			ft_lstadd_front(lst, new);
-		else
-			last->next = new;
+		if (48 <= *s && *s <= 57)
+			return ((char *)s);
+		s++;
 	}
+	return (NULL);
 }
+

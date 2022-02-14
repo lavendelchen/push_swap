@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ps_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 20:16:15 by shaas             #+#    #+#             */
-/*   Updated: 2021/07/19 19:53:07 by shaas            ###   ########.fr       */
+/*   Created: 2021/07/12 20:15:47 by shaas             #+#    #+#             */
+/*   Updated: 2022/02/14 17:22:43 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
+#include <stdio.h>
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*curr;
-	int		count;
 
 	curr = lst;
-	count = 0;
-	while (curr != NULL)
-	{
-		count++;
+	if (curr == NULL)
+		return (curr);
+	while (curr->next != NULL)
 		curr = curr->next;
-	}
-	return (count);
+	return (curr);
 }

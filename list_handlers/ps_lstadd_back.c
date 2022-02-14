@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ps_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 20:15:09 by shaas             #+#    #+#             */
-/*   Updated: 2021/07/19 19:51:53 by shaas            ###   ########.fr       */
+/*   Created: 2021/07/12 20:14:53 by shaas             #+#    #+#             */
+/*   Updated: 2022/02/14 18:09:36 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ps_lstadd_back(t_list *lst, t_node *new)
 {
-	t_list	*curr;
-	t_list	*curr2;
-
-	if (del != NULL)
-	{
-		curr = *lst;
-		while (curr != NULL)
-		{
-			curr2 = curr->next;
-			ft_lstdelone(curr, del);
-			curr = curr2;
-		}
-		*lst = NULL;
-	}
+	lst->end->next = new;
+	new->prev = lst->end;
+	lst->end = new;
 }

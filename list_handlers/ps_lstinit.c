@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ps_lstinit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 20:15:33 by shaas             #+#    #+#             */
-/*   Updated: 2021/07/14 20:24:23 by shaas            ###   ########.fr       */
+/*   Created: 2022/02/14 20:15:35 by shaas             #+#    #+#             */
+/*   Updated: 2022/02/14 21:43:45 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ps_lstinit(t_list *lst, int num, t_list *stack_a, t_list *stack_b)
 {
-	t_list	*curr;
+	t_node	*first;
 
-	if (f != NULL)
-	{
-		curr = lst;
-		while (curr != NULL)
-		{
-			f(curr->content);
-			curr = curr->next;
-		}
-	}
+	first = ps_lstnew(num, stack_a, stack_b);
+	lst->start = first;
+	lst->end = first;
 }
