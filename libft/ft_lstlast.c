@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 10:43:13 by shaas            ###   ########.fr       */
+/*   Created: 2021/07/12 20:15:47 by shaas             #+#    #+#             */
+/*   Updated: 2021/07/19 19:52:31 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
+#include <stdio.h>
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+t_list	*ft_lstlast(t_list *lst)
 {
-	
-}
+	t_list	*curr;
 
-#endif
+	curr = lst;
+	if (curr == NULL)
+		return (curr);
+	while (curr->next != NULL)
+		curr = curr->next;
+	return (curr);
+}

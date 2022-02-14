@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 10:43:13 by shaas            ###   ########.fr       */
+/*   Created: 2021/06/16 11:14:11 by shaas             #+#    #+#             */
+/*   Updated: 2021/06/25 15:26:59 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	
-}
+	size_t			i;
+	unsigned char	*char_b;
+	unsigned char	*start_b;
 
-#endif
+	start_b = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+	{
+		char_b = (unsigned char *)b;
+		*char_b = (unsigned char)c;
+		b++;
+		i++;
+	}
+	b = start_b;
+	return (b);
+}

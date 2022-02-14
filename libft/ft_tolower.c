@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 10:43:13 by shaas            ###   ########.fr       */
+/*   Created: 2021/06/24 17:57:10 by shaas             #+#    #+#             */
+/*   Updated: 2021/06/25 15:27:41 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+int	ft_tolower(int c)
 {
-	
+	if (65 <= c && c <= 90)
+		c = c + 32;
+	return (c);
 }
-
-#endif

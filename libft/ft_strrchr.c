@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 10:43:13 by shaas            ###   ########.fr       */
+/*   Created: 2021/06/22 20:14:16 by shaas             #+#    #+#             */
+/*   Updated: 2021/06/25 15:27:35 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+char	*ft_strrchr(const char *s, int c)
 {
-	
-}
+	int	i;
 
-#endif
+	i = 0;
+	while (*s != '\0')
+	{
+		s++;
+		i++;
+	}
+	while (i >= 0)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s--;
+		i--;
+	}
+	return (NULL);
+}

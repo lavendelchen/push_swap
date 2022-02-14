@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 10:43:13 by shaas            ###   ########.fr       */
+/*   Created: 2021/06/16 10:38:14 by shaas             #+#    #+#             */
+/*   Updated: 2021/06/28 13:22:22 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	
-}
+	size_t	i;
+	size_t	srclen;
 
-#endif
+	i = 0;
+	srclen = ft_strlen(src);
+	if (dstsize == 0)
+		return (srclen);
+	while (i < dstsize - 1 && i < srclen)
+	{
+		*dst = *src;
+		dst++;
+		src++;
+		i++;
+	}
+	*dst = '\0';
+	return (srclen);
+}

@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 10:43:13 by shaas            ###   ########.fr       */
+/*   Created: 2021/06/16 10:37:50 by shaas             #+#    #+#             */
+/*   Updated: 2021/06/28 18:45:23 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	
-}
+	size_t	i;
+	size_t	ret;
 
-#endif
+	i = 0;
+	ret = ft_strlen(src) + ft_strlen(dst);
+	if (ft_strlen(dst) >= dstsize)
+		return (ft_strlen(src) + dstsize);
+	while (*dst != '\0')
+	{
+		dst++;
+		i++;
+	}
+	while (i + 1 < dstsize && *src != '\0')
+	{
+		*dst = *src;
+		dst++;
+		src++;
+		i++;
+	}
+	*dst = '\0';
+	return (ret);
+}
