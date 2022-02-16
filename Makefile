@@ -6,13 +6,13 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/02/15 20:50:28 by shaas            ###   ########.fr        #
+#    Updated: 2022/02/16 18:13:19 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-COMP = gcc -Wall -Wextra -Werror
+COMP = gcc -Wall -Wextra -Werror -g
 
 LIBFT = libft/libft.a
 
@@ -21,7 +21,7 @@ list_handlers/ps_lstinit.c list_handlers/ps_lstadd_back.c error_exit.c
 
 OBJ = $(SRC:.c=.o)
 
-ARG = 1 -2 -3 4 -5 6 -10 11 -+-+---12 23 56  -74 555
+ARG = 1 3 46  4556 45 3  2 2 3 3 23 4 5  5 4
 
 all: $(NAME)
 

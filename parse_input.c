@@ -6,34 +6,11 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:02:26 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/15 20:20:15 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/16 18:12:00 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	check_for_errors(int argc, char **argv)
-{
-	int	i;
-	int	j;
-
-	if (argc < 2)
-		exit(EXIT_FAILURE);
-	i = 1;
-	j = 0;
-	while (i < argc)
-	{
-		while (argv[i][j] != '\0')
-		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ' && \
-			argv[i][j] != '-' && argv[i][j] != '+')
-				error_exit(NULL, NULL);
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-}
 
 static void	check_for_duplicates(t_list *stack_a)
 {
@@ -79,7 +56,8 @@ void	parse_input(int argc, char **argv, t_list *stack_a)
 	int		i;
 	t_node	*new;
 
-	check_for_errors(argc, argv);
+	if (argc < 2)
+		error_exit(stack_a, NULL);
 	ps_lstinit(stack_a, ps_atoi(argv[1], stack_a), stack_a, NULL);
 	if (ft_strchr(argv[1], ' '))
 		handle_string_of_ints(stack_a, ft_strchr(argv[1], ' '));

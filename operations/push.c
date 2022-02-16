@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:26:43 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/15 21:19:28 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/16 17:32:49 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,5 @@ void	push_a(t_list *stack_a, t_list *stack_b)
 {
 	
 }
+
+//special cases to handle: only one element, list empty, list becomes empty ?????

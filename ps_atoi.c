@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:51:43 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/15 19:59:17 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/16 18:06:47 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ int	ps_atoi(const char *str, t_list *stack_a)
 			sign = -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (ps_whitespace(*str) == 0 && *str != '\0')
 	{
+		if (*str < '0' || *str > '9')
+			error_exit(stack_a, NULL);
 		i = i * 10;
 		i = i + (*str - '0');
 		str++;
