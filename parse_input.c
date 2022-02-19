@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:02:26 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/16 18:12:00 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/19 13:56:44 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	parse_input(int argc, char **argv, t_list *stack_a)
 
 	if (argc < 2)
 		error_exit(stack_a, NULL);
-	ps_lstinit(stack_a, ps_atoi(argv[1], stack_a), stack_a, NULL);
+	new = ps_lstnew(ps_atoi(argv[1], stack_a), stack_a, NULL),
+	ps_lstinit(stack_a, new);
 	if (ft_strchr(argv[1], ' '))
 		handle_string_of_ints(stack_a, ft_strchr(argv[1], ' '));
 	i = 2;

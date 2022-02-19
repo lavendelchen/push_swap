@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/15 20:42:35 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/19 13:56:06 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	parse_input(int argc, char **argv, t_list *stack_a);
 int		ps_atoi(const char *str, t_list *stack_a);
 /*handle the two stacks*/
 t_node	*ps_lstnew(int num, t_list *stack_a, t_list *stack_b); // 💭 all nodes wil be allocated
-void	ps_lstinit(t_list *lst, int num, t_list *stack_a, t_list *stack_b);
+void	ps_lstinit(t_list *lst, t_node *new);
 void	ps_lstadd_back(t_list *lst, t_node *new);
 void	ps_lstadd_front(t_list *lst, t_node *new);
 /*for when the program has to end*/
