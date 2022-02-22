@@ -6,7 +6,7 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/02/22 18:24:04 by shaas            ###   ########.fr        #
+#    Updated: 2022/02/22 19:44:07 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,14 @@ COMP = gcc -Wall -Wextra -Werror -g
 
 LIBFT = libft/libft.a
 
-SRC := push_swap.c parse_input.c ps_atoi.c list_handlers/ps_lstnew.c \
+SRC := push_swap.c parse_input.c ps_atoi.c error_exit.c list_handlers/ps_lstnew.c \
 list_handlers/ps_lstinit.c list_handlers/ps_lstadd_head.c list_handlers/ps_lstadd_tail.c \
-list_handlers/ps_lstrm_head list_handlers/ps_lstrm_tail.c error_exit.c 
+list_handlers/ps_lstrm_head.c list_handlers/ps_lstrm_tail.c list_handlers/ps_lstfree.c \
+operations/push.c operations/reverse_rotate.c operations/rotate.c operations/swap.c \
 
 OBJ = $(SRC:.c=.o)
 
-ARG = 1 3 46  4556 45 3  2 2 3 3 23 4 5  5 4
+ARG = 1 3 46  4556 45 
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:32:42 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/22 18:02:51 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/22 18:52:01 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,8 @@
 
 void	exit_cleanly(t_list *stack_a, t_list *stack_b, int is_failure)
 {
-	t_node	*buf;
-
-	if (stack_a != NULL)
-	{
-		buf = stack_a->head;
-		while (buf != NULL)
-		{
-			free(buf);
-			buf = buf->next;
-		}
-	}
-	if (stack_b != NULL)
-	{
-		buf = stack_b->head;
-		while (buf != NULL)
-		{
-			free(buf);
-			buf = buf->next;
-		}
-	}
+	ps_lstfree(stack_a);
+	ps_lstfree(stack_b);
 	exit(is_failure);
 }
 

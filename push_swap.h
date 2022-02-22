@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/22 18:03:41 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/22 20:35:51 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_list
 	t_node	*tail;
 }				t_list;
 
+void	print_stacks(t_list *stack_a, t_list *stack_b);
 /*needed to parse input*/
 void	parse_input(int argc, char **argv, t_list *stack_a);
 int		ps_atoi(const char *str, t_list *stack_a);
@@ -40,6 +41,9 @@ t_node	*ps_lstnew(int num, t_list *stack_a, t_list *stack_b); // 💭 all nodes 
 void	ps_lstinit(t_list *lst, t_node *new);
 void	ps_lstadd_tail(t_list *lst, t_node *new);
 void	ps_lstadd_head(t_list *lst, t_node *new);
+void	ps_lstrm_head(t_list *lst);
+void	ps_lstrm_tail(t_list *lst);
+void	ps_lstfree(t_list *lst);
 /*for when the program has to end*/
 void	error_exit(t_list *stack_a, t_list *stack_b);
 void	exit_cleanly(t_list *stack_a, t_list *stack_b, int is_failure);

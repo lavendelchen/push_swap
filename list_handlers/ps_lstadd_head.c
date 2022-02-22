@@ -14,6 +14,13 @@
 
 void	ps_lstadd_head(t_list *lst, t_node *new)
 {
+	if (new == NULL)
+		return ;
+	if (lst->head == NULL)
+	{
+		ps_lstinit(lst, new);
+		return ;
+	}
 	lst->head->prev = new;
 	new->next = lst->head;
 	lst->head = new;
