@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:02:26 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/19 13:56:44 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/22 18:03:41 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static void	check_for_duplicates(t_list *stack_a)
 {
 	t_node	*node;
 
-	node = stack_a->start;
-	while (node != stack_a->end)
+	node = stack_a->head;
+	while (node != stack_a->tail)
 	{
-		if (node->num == stack_a->end->num)
+		if (node->num == stack_a->tail->num)
 			error_exit(stack_a, NULL);
 		node = node->next;
 	}
@@ -38,7 +38,7 @@ static void	handle_string_of_ints(t_list *stack_a, char *str)
 	while (split[i] != NULL)
 	{
 		new = ps_lstnew(ps_atoi(split[i], stack_a), stack_a, NULL);
-		ps_lstadd_back(stack_a, new);
+		ps_lstadd_tail(stack_a, new);
 		check_for_duplicates(stack_a);
 		i++;
 	}
@@ -70,13 +70,13 @@ void	parse_input(int argc, char **argv, t_list *stack_a)
 		else
 		{
 			new = ps_lstnew(ps_atoi(argv[i], stack_a), stack_a, NULL);
-			ps_lstadd_back(stack_a, new);
+			ps_lstadd_tail(stack_a, new);
 			check_for_duplicates(stack_a);
 		}
 		i++;
 	}
 	t_node *buf; // this part is for testing
-	buf = stack_a->start;
+	buf = stack_a->head;
 	while (buf != NULL)
 	{
 		printf("%+d\n", buf->num);

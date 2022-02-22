@@ -6,7 +6,7 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/02/19 13:57:55 by shaas            ###   ########.fr        #
+#    Updated: 2022/02/22 18:24:04 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ COMP = gcc -Wall -Wextra -Werror -g
 LIBFT = libft/libft.a
 
 SRC := push_swap.c parse_input.c ps_atoi.c list_handlers/ps_lstnew.c \
-list_handlers/ps_lstinit.c list_handlers/ps_lstadd_back.c error_exit.c 
+list_handlers/ps_lstinit.c list_handlers/ps_lstadd_head.c list_handlers/ps_lstadd_tail.c \
+list_handlers/ps_lstrm_head list_handlers/ps_lstrm_tail.c error_exit.c 
 
 OBJ = $(SRC:.c=.o)
 

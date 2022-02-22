@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_lstrm_back.c                                    :+:      :+:    :+:   */
+/*   ps_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 20:46:02 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/15 20:48:26 by shaas            ###   ########.fr       */
+/*   Created: 2021/07/12 20:14:53 by shaas             #+#    #+#             */
+/*   Updated: 2022/02/22 18:05:15 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	lstrm_back(t_list *lst)
+void	ps_lstadd_tail(t_list *lst, t_node *new)
 {
-	lst->end = lst->end->prev;
-	lst->end->next = NULL;
+	lst->tail->next = new;
+	new->prev = lst->tail;
+	lst->tail = new;
+	lst->tail->next = NULL;
 }

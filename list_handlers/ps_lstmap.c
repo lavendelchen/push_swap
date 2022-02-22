@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 20:16:01 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 17:22:43 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/22 18:01:06 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 				ft_lstclear(&new_lst, del);
 				return (NULL);
 			}
-			ft_lstadd_back(&new_lst, new_curr);
+			ft_lstadd_tail(&new_lst, new_curr);
 			curr = curr->next;
 		}
 	}
