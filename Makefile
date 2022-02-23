@@ -6,7 +6,7 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/02/22 19:44:07 by shaas            ###   ########.fr        #
+#    Updated: 2022/02/23 03:44:53 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ operations/push.c operations/reverse_rotate.c operations/rotate.c operations/swa
 
 OBJ = $(SRC:.c=.o)
 
-ARG = 1 3 46  4556 45 
+ARG = 1 3 46  4556 45 4 6 7 8 9 10 11 234 555 
 
 all: $(NAME)
 

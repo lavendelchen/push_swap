@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:26:52 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/22 20:35:57 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/23 03:51:05 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	swap_a(t_list *stack_a)
 	ps_lstrm_head(stack_a);
 	ps_lstadd_head(stack_a, first);
 	ps_lstadd_head(stack_a, second);
+	ft_putendl_fd("sa", 1);
 }
 
 void	swap_b(t_list *stack_b)
@@ -45,10 +46,12 @@ void	swap_b(t_list *stack_b)
 	ps_lstrm_head(stack_b);
 	ps_lstadd_head(stack_b, first);
 	ps_lstadd_head(stack_b, second);
+	ft_putendl_fd("sb", 1);
 }
 
 void	swap_ab(t_list *stack_a, t_list *stack_b)
 {
 	swap_a(stack_a);
 	swap_b(stack_b);
+	ft_putendl_fd("ss", 1);
 }
