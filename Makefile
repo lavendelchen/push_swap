@@ -6,7 +6,7 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/02/23 19:44:18 by shaas            ###   ########.fr        #
+#    Updated: 2022/02/23 22:18:15 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,11 @@ SRC := push_swap.c parse_input.c ps_atoi.c error_exit.c list_handlers/ps_lstnew.
 list_handlers/ps_lstinit.c list_handlers/ps_lstadd_head.c list_handlers/ps_lstadd_tail.c \
 list_handlers/ps_lstrm_head.c list_handlers/ps_lstrm_tail.c list_handlers/ps_lstfree.c \
 operations/push.c operations/reverse_rotate.c operations/rotate.c operations/swap.c \
-assign_ranks.c
+assign_ranks.c the_algorithm.c
 
 OBJ = $(SRC:.c=.o)
 
-ARG = 1 3 46  4556 45 4 6 7 8 9 10 11 234 555 
+ARG = 84 23 3838 8482 3993 4882 930293 -3 -4 -5 -6
 
 all: $(NAME)
 

@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_lstfree.c                                       :+:      :+:    :+:   */
+/*   the_algorithm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 20:15:09 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/23 22:08:38 by shaas            ###   ########.fr       */
+/*   Created: 2022/02/23 22:18:20 by shaas             #+#    #+#             */
+/*   Updated: 2022/02/23 22:25:01 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	ps_lstfree(t_list *lst)
+void	the_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 {
-	t_node	*curr;
-
-	if (lst != NULL)
-	{
-		curr = lst->head;
-		while (curr != NULL)
-		{
-			free(curr);
-			curr = curr->next;
-		}
-	}
+	
 }
