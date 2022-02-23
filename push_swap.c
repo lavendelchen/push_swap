@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:59:41 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/23 03:52:53 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/23 19:49:24 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int argc, char **argv)
 	stack_b.head = NULL;
 	stack_b.tail = NULL;
 	parse_input(argc, argv, &stack_a);
+	assign_ranks(&stack_a);
 	push_b(&stack_a, &stack_b);
 	push_b(&stack_a, &stack_b);
 	push_b(&stack_a, &stack_b);
@@ -65,6 +66,18 @@ int	main(int argc, char **argv)
 	reverse_rotate_b(&stack_b);
 	print_stacks(&stack_a, &stack_b);
 	reverse_rotate_ab(&stack_a, &stack_b);
+	print_stacks(&stack_a, &stack_b);
+	rotate_a(&stack_a);
+	print_stacks(&stack_a, &stack_b);
+	rotate_b(&stack_b);
+	print_stacks(&stack_a, &stack_b);
+	rotate_ab(&stack_a, &stack_b);
+	print_stacks(&stack_a, &stack_b);
+	swap_a(&stack_a);
+	print_stacks(&stack_a, &stack_b);
+	swap_b(&stack_b);
+	print_stacks(&stack_a, &stack_b);
+	swap_ab(&stack_a, &stack_b);
 	print_stacks(&stack_a, &stack_b);
 	/*
 	for (int i = 0; i < 6; i++)

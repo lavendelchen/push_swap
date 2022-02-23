@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:26:49 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/23 03:53:05 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/23 18:57:42 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,13 @@ void	rotate_b(t_list *stack_b)
 
 void	rotate_ab(t_list *stack_a, t_list *stack_b)
 {
-	rotate_a(stack_a);
-	rotate_b(stack_b);
+	t_node	*rotate;
+
+	rotate = stack_a->head;
+	ps_lstrm_head(stack_a);
+	ps_lstadd_tail(stack_a, rotate);
+	rotate = stack_b->head;
+	ps_lstrm_head(stack_b);
+	ps_lstadd_tail(stack_b, rotate);
 	ft_putendl_fd("rr", 1);
 }

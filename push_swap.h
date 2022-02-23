@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/22 20:35:51 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/23 19:48:47 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_node
 {
 	struct s_node	*prev;
 	int				num;
+	long long		rank;
 	struct s_node	*next;
 }				t_node;
 
@@ -36,6 +37,7 @@ void	print_stacks(t_list *stack_a, t_list *stack_b);
 /*needed to parse input*/
 void	parse_input(int argc, char **argv, t_list *stack_a);
 int		ps_atoi(const char *str, t_list *stack_a);
+void	assign_ranks(t_list *stack_a);
 /*handle the two stacks*/
 t_node	*ps_lstnew(int num, t_list *stack_a, t_list *stack_b); // 💭 all nodes wil be allocated
 void	ps_lstinit(t_list *lst, t_node *new);
