@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/24 16:31:56 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/24 23:05:16 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <sys/time.h>
 
 typedef struct s_node
 {
@@ -35,8 +36,9 @@ typedef struct s_list
 }				t_list;
 
 void			print_stacks(t_list *stack_a, t_list *stack_b);
-bool			is_sorted(t_list *stack_a);
+bool			is_sorted(t_list *stack, unsigned int numnum);
 void			the_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum);
+void			the_algorithm2(t_list *stack_a, t_list *stack_b, unsigned int numnum);
 /*needed to parse input*/
 void			parse_input(int argc, char **argv, t_list *stack_a);
 int				ps_atoi(const char *str, t_list *stack_a);

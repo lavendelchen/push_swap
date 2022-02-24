@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:20:54 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/24 16:58:08 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/24 23:05:45 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,21 @@ void	print_stacks(t_list *stack_a, t_list *stack_b)
 	printf("\n");
 }
 
-bool	is_sorted(t_list *stack_a)
+bool	is_sorted(t_list *stack, unsigned int numnum)
 {
 	t_node				*iter;
 	unsigned int		rank;
 
 	rank = 0;
-	iter = stack_a->head;
-	while (iter != NULL) // checks from 0 till th elist ends (not very specific usecase)
+	iter = stack->head;
+	while (iter != NULL) // checks from 0 till the list ends (not very specific usecase)
 	{
 		if (iter->rank != rank)
 			return (false);
 		iter = iter->next;
 		rank++;
 	}
+	if (rank < numnum)
+		return (false);
 	return (true);
 }

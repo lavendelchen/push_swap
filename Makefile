@@ -6,7 +6,7 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/02/24 18:09:09 by shaas            ###   ########.fr        #
+#    Updated: 2022/02/24 23:07:19 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ assign_ranks.c the_algorithm.c utils/utils.c
 
 OBJ = $(SRC:.c=.o)
 
-ARG = 2 1 3 6 5 8 1
+ARG = 2 1 3 6 5 8
 
 all: $(NAME)
 

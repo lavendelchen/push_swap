@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:59:41 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/24 17:17:41 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/24 23:03:54 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(int argc, char **argv)
 	parse_input(argc, argv, &stack_a);
 	numnum = assign_ranks(&stack_a);
 	//print_stacks(&stack_a, &stack_b);
-	if (is_sorted(&stack_a) == false)
-		the_algorithm(&stack_a, &stack_b, numnum);
+	if (is_sorted(&stack_a, numnum) == false)
+		the_algorithm2(&stack_a, &stack_b, numnum);
 	/*
 	push_b(&stack_a, &stack_b);
 	push_b(&stack_a, &stack_b);
