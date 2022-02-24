@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 13:25:39 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/14 22:03:15 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/24 17:26:11 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ char	*ft_strtrim(const char *s1, const char *set);
 
 /*💭 splits string into substrings, allocates them*/
 char	**ft_split(const char *s, char c);
+char	**ft_split_whitespace(const char *s);
 
 /*applies function to every char of string*/
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));

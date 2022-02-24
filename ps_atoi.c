@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:51:43 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/16 18:06:47 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/24 17:40:15 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static int	ps_whitespace(char c)
 
 int	ps_atoi(const char *str, t_list *stack_a)
 {
-	int	i;
-	int	sign;
+	long long	i;
+	int			sign;
 
 	i = 0;
 	sign = 1;
@@ -36,6 +36,8 @@ int	ps_atoi(const char *str, t_list *stack_a)
 			sign = -1;
 		str++;
 	}
+	if (*str < '0' || *str > '9')
+		error_exit(stack_a, NULL);
 	while (ps_whitespace(*str) == 0 && *str != '\0')
 	{
 		if (*str < '0' || *str > '9')

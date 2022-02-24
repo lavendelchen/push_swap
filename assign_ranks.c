@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 19:48:00 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/23 22:13:49 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/24 16:37:41 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static unsigned int	actually_assign_ranks(t_list *stack_a, unsigned int rank, \
 		smallest->rank = rank;
 		smaller = smallest;
 		rank++;
-		printf("smallest number right now: %d, has rank %lld\n", smallest->num, smallest->rank);
 	}
 	return (smallest->rank + 1);
 }

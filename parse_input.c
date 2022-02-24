@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:02:26 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/23 19:03:47 by shaas            ###   ########.fr       */
+/*   Updated: 2022/02/24 17:47:37 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	handle_string_of_ints(t_list *stack_a, char *str)
 	int		i;
 
 	i = 0;
-	split = ft_split(str, ' ');
+	split = ft_split_whitespace(str);
 	if (split == NULL)
 		error_exit(stack_a, NULL);
 	while (split[i] != NULL)
