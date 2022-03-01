@@ -6,11 +6,11 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:51:43 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/24 17:40:15 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/01 20:48:36 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	ps_whitespace(char c)
 {

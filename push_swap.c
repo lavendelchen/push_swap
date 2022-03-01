@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:59:41 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/24 23:03:54 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/01 21:41:50 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,35 +22,8 @@ int	main(int argc, char **argv)
 	stack_b.tail = NULL;
 	parse_input(argc, argv, &stack_a);
 	numnum = assign_ranks(&stack_a);
-	//print_stacks(&stack_a, &stack_b);
-	if (is_sorted(&stack_a, numnum) == false)
-		the_algorithm2(&stack_a, &stack_b, numnum);
-	/*
-	push_b(&stack_a, &stack_b);
-	push_b(&stack_a, &stack_b);
-	push_b(&stack_a, &stack_b);
-	push_b(&stack_a, &stack_b);
-	print_stacks(&stack_a, &stack_b);
-	reverse_rotate_a(&stack_a);
-	print_stacks(&stack_a, &stack_b);
-	reverse_rotate_b(&stack_b);
-	print_stacks(&stack_a, &stack_b);
-	reverse_rotate_ab(&stack_a, &stack_b);
-	print_stacks(&stack_a, &stack_b);
-	rotate_a(&stack_a);
-	print_stacks(&stack_a, &stack_b);
-	rotate_b(&stack_b);
-	print_stacks(&stack_a, &stack_b);
-	rotate_ab(&stack_a, &stack_b);
-	print_stacks(&stack_a, &stack_b);
-	swap_a(&stack_a);
-	print_stacks(&stack_a, &stack_b);
-	swap_b(&stack_b);
-	print_stacks(&stack_a, &stack_b);
-	swap_ab(&stack_a, &stack_b);
-	print_stacks(&stack_a, &stack_b);
-	*/
-	//do_stuff_lol(&stack_a, &stack_b);
+	print_ranks(&stack_a, &stack_b);
+	logical_algorithm(&stack_a, &stack_b, numnum);
 	exit_cleanly(&stack_a, &stack_b, EXIT_SUCCESS);
 }
 

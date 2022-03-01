@@ -6,11 +6,11 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:02:26 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/24 17:47:37 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/01 20:48:31 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	check_for_duplicates(t_list *stack_a)
 {

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   the_algorithm.c                                    :+:      :+:    :+:   */
+/*   first_algorithms.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 22:18:20 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/24 23:03:29 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/01 20:14:39 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define RAND_MAX 10
 #include "push_swap.h"
 
 
-void	the_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
+void	basic_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 {
 	unsigned int	rank;
 
@@ -34,7 +33,7 @@ void	the_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 		push_a(stack_a, stack_b);
 }
 
-void	the_algorithm2(t_list *stack_a, t_list *stack_b, unsigned int numnum)
+void	random_sort(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 {
 	struct timeval	tv;
 	int				r;

@@ -6,11 +6,11 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 19:48:00 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/24 16:37:41 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/01 20:48:17 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static t_node	*find_biggest_number_in_stack(t_list *stack)
 {

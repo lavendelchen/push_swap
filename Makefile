@@ -6,7 +6,7 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/02/24 23:07:19 by shaas            ###   ########.fr        #
+#    Updated: 2022/03/01 21:37:34 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,18 @@ COMP = gcc -Wall -Wextra -Werror -g
 
 LIBFT = libft/libft.a
 
-SRC := push_swap.c parse_input.c ps_atoi.c error_exit.c list_handlers/ps_lstnew.c \
-list_handlers/ps_lstinit.c list_handlers/ps_lstadd_head.c list_handlers/ps_lstadd_tail.c \
-list_handlers/ps_lstrm_head.c list_handlers/ps_lstrm_tail.c list_handlers/ps_lstfree.c \
+SRC := push_swap.c \
+list_handlers/ps_lstnew.c list_handlers/ps_lstinit.c list_handlers/ps_lstadd_head.c \
+list_handlers/ps_lstadd_tail.c list_handlers/ps_lstrm_head.c \
+list_handlers/ps_lstrm_tail.c list_handlers/ps_lstfree.c \
 operations/push.c operations/reverse_rotate.c operations/rotate.c operations/swap.c \
-assign_ranks.c the_algorithm.c utils/utils.c
+utils/assign_ranks.c utils/parse_input.c utils/ps_atoi.c utils/error_exit.c \
+utils/is_sorted.c utils/print_stacks.c \
+first_algorithms.c logical_algorithm.c
 
 OBJ = $(SRC:.c=.o)
 
-ARG = 2 1 3 6 5 8
+ARG = 41 13 36 82 73 72 46 90 92 39 77 54 52 22 79 21 83 71 43 0 30 10 16 62 32 5 64 95 3 19
 
 all: $(NAME)
 

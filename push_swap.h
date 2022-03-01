@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/02/24 23:05:16 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/01 21:48:45 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_node
 	struct s_node	*prev;
 	int				num;
 	unsigned int	rank;
+	struct s_node	*path;
+	struct s_node	*potential_path;
 	struct s_node	*next;
 }				t_node;
 
@@ -35,10 +37,15 @@ typedef struct s_list
 	t_node	*tail;
 }				t_list;
 
+/*utils*/
 void			print_stacks(t_list *stack_a, t_list *stack_b);
+void			print_ranks(t_list *stack_a, t_list *stack_b);
+void			print_subsequence(t_list *stack_a);
 bool			is_sorted(t_list *stack, unsigned int numnum);
-void			the_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum);
-void			the_algorithm2(t_list *stack_a, t_list *stack_b, unsigned int numnum);
+/*algorithm stuff*/
+void			basic_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum);
+void			random_sort(t_list *stack_a, t_list *stack_b, unsigned int numnum);
+void		logical_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum);
 /*needed to parse input*/
 void			parse_input(int argc, char **argv, t_list *stack_a);
 int				ps_atoi(const char *str, t_list *stack_a);
