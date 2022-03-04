@@ -6,81 +6,123 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 20:41:09 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/04 14:32:18 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/04 22:09:17 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	assign_l_i_s(t_list *stack_a)
-{
-	t_node	*search;
-	t_node	*iter;
-
-	iter = stack_a->tail;
-	while (iter != NULL)
-	{
-		iter->l_i_s_length = 1;
-		iter->l_i_s_next = NULL;
-		search = iter->next;
-		while (search != NULL)
-		{
-			if (search->rank > iter->rank && (iter->l_i_s_next == NULL || search->l_i_s_length > iter->l_i_s_next->l_i_s_length))
-			{
-				iter->l_i_s_length = 1 + search->l_i_s_length;
-				iter->l_i_s_next = search;
-			}
-			search = search->next;
-		}
-		iter = iter->prev;
-	}
-}
-
-t_node	*find_l_i_s(t_list *stack_a)
+t_node	*find_bottom(t_list *stack_a, t_node *node)
 {
 	t_node	*iter;
-	t_node	*l_i_s;
+	t_node	*bottom;
 
-	assign_l_i_s(stack_a);
-	l_i_s = stack_a->head;
 	iter = stack_a->head;
+	bottom = NULL;
 	while (iter != NULL)
 	{
-		if (iter->l_i_s_length > l_i_s->l_i_s_length)
-			l_i_s = iter;
+		if (bottom == NULL && iter->rank > node->rank) 
+			bottom = iter;
+		else if (iter->rank > node->rank && iter->rank < bottom->rank)
+		{
+			bottom = iter;
+			break ;
+		}
 		iter = iter->next;
 	}
-	print_ranks_and_l_i_s(stack_a); //
-	print_subsequence(l_i_s);
-	return (l_i_s);
+	if (bottom == NULL)
+	{
+		iter = stack_a->head;
+		bottom = stack_a->head;
+		while (iter != NULL)
+		{
+			if (iter->rank < bottom->rank)
+			{
+				bottom = iter;
+				break ;
+			}
+			iter = iter->next;
+		}
+	}
+	return (bottom);
 }
 
-void	init_stacks(t_list *stack_a, t_list *stack_b, unsigned int numnum)
-{
-	t_node			*iter;
-	t_node			*next;
-	t_node			*l_i_s;
-	unsigned int	i;
+//to do: shorten bottom function! maybe different approach to handle big number that doesn't have bottom
+//also: we have handled rb & rrb, finding bottom makes ra & rra possible. then we can start to add up. look at paper.
 
-	i = 0;
-	iter = stack_a->head;
-	l_i_s = find_l_i_s(stack_a);
-	while (i < numnum)
+void	calculate_sort_for_node(t_node *node, t_list *stack_a, t_list *stack_b)
+{
+	t_node	*iter;
+	t_node	*bottom;
+
+	node->sort.rb = 0;
+	node->sort.rrb = 0;
+	node->sort.ra = 0;
+	node->sort.rra = 0;
+	node->sort.rr = 0;
+	node->sort.rrr = 0;
+	iter = node;
+	while (iter != stack_b->head)
 	{
-		next = iter->next;
-		if (iter == l_i_s)
-		{
-			rotate_a(stack_a);
-			l_i_s = l_i_s->l_i_s_next;
-		}
-		else
-			push_b(stack_a, stack_b);
-		iter = next;
-		i++;
+		iter = iter->prev;
+		node->sort.rb++;
 	}
+	iter = node;
+	while (iter != NULL && iter != stack_b->head)
+	{
+		iter = iter->next;
+		node->sort.rrb++;
+	}
+	iter = stack_a->head;
+	printf("\e[96mhere?\e[0m\n");
+	bottom = find_bottom(stack_a, node);
+	while (iter != NULL)
+	{
+		if (bottom == NULL && iter->rank > node->rank) 
+			bottom = iter;
+		else if (iter->rank > node->rank && iter->rank < bottom->rank)
+		{
+			bottom = iter;
+			break ;
+		}
+		iter = iter->next;
+	}
+	if (bottom == NULL)
+	{
+		iter = stack_a->head;
+		bottom = stack_a->head;
+		while (iter != NULL)
+		{
+			if (iter->rank < bottom->rank)
+			{
+				bottom = iter;
+				break ;
+			}
+			iter = iter->next;
+		}
+	}
+	printf("num: %4d, rb_num: %4d, rrb_num: %4d, bottom: %4d\n", node->rank, node->sort.rb, node->sort.rrb, bottom->rank);
+}
+
+t_node	*calculate_sort(t_list *stack_a, t_list *stack_b) // have to change it every time
+{
+	t_node	*iter;
+
+	iter = stack_b->head;
+	while (iter != NULL)
+	{
+		calculate_sort_for_node(iter, stack_a, stack_b);
+		iter = iter->next;
+	}
+	return (iter);
+	//then see which one's the shortest sum
 }
 
 void	logical_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 {
+	t_node	*sort;
+
 	init_stacks(stack_a, stack_b, numnum);
+	print_ranks(stack_a, stack_b);
+	sort = calculate_sort(stack_a, stack_b);
 }

@@ -6,7 +6,7 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/03/04 14:34:54 by shaas            ###   ########.fr        #
+#    Updated: 2022/03/04 20:39:38 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,11 @@ list_handlers/ps_lstrm_tail.c list_handlers/ps_lstfree.c \
 operations/push.c operations/reverse_rotate.c operations/rotate.c operations/swap.c \
 utils/assign_ranks.c utils/parse_input.c utils/ps_atoi.c utils/error_exit.c \
 utils/is_sorted.c utils/print_stacks.c \
-first_algorithms.c logical_algorithm.c
+first_algorithms.c logical_algorithm.c init_stacks.c
 
 OBJ = $(SRC:.c=.o)
 
-ARG = 1 2 3
+ARG = 77 40 12 42 18 93 16 7 32 29 28 22 33 0 2 67 70 96 31 5 51 15 92 73 87 55 63 17 95 37
 
 all: $(NAME)
 
