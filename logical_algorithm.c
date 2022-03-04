@@ -6,76 +6,55 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 20:41:09 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/01 21:56:18 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/04 04:58:53 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	copy_path(t_node *starter)
+t_node	*find_l_i_s(t_list *stack_a)
 {
 	t_node	*iter;
+	t_node	*search;
 
-	iter = starter;
+	iter = stack_a->tail;
 	while (iter != NULL)
 	{
-		iter->path = iter->potential_path;
-		iter = iter->potential_path;
+		iter->l_i_s_length = 1;
+		iter->l_i_s_next = NULL;
+		search = iter->next;
+		while (search != NULL)
+		{
+			if (search->rank > iter->rank && (iter->l_i_s_next == NULL || search->l_i_s_length > iter->l_i_s_next->l_i_s_length))
+			{
+				iter->l_i_s_length = 1 + search->l_i_s_length;
+				iter->l_i_s_next = search;
+			}
+			search = search->next;
+		}
+		iter = iter->prev;
 	}
-}
-
-t_node	*find_next_bigger_number(t_node *nbr)
-{
-	t_node	*bigger;
-	t_node	*iter;
-
-	iter = nbr;
-	bigger = NULL;
-	while (bigger == NULL && iter != NULL)
-	{
-		if (nbr->rank < iter->rank)
-			bigger = iter;
-		iter = iter->next;
-	}
-	return (bigger);
-}
-
-t_node	*find_longest_sequence(t_list *stack_a)
-{
-	t_node	*starter;
-	t_node	*iter;
-	t_node	*bigger;
-
-	starter = stack_a->head;
-	iter = starter;
-	while (iter != NULL)
-	{
-		bigger = find_next_bigger_number(iter);
-		iter->potential_path = bigger;
-		iter = iter->potential_path;
-	}
-	copy_path(starter);
-	print_subsequence(stack_a); //
-	return (starter);
+	print_l_i_s(stack_a); //
+	return (iter);
 }
 
 void	init_stacks(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 {
 	t_node		*iter;
 	t_node		*next;
-	t_node		*subs;
+	t_node		*l_i_s;
 	unsigned int	i;
 
 	i = 0;
 	iter = stack_a->head;
-	subs = find_longest_sequence(stack_a);
+	l_i_s = find_l_i_s(stack_a);
 	while (i < numnum)
 	{
 		next = iter->next;
-		if (iter == subs)
+		if (iter == l_i_s)
 		{
 			rotate_a(stack_a);
-			subs = subs->path;
+			l_i_s = l_i_s->l_i_s_next;
 		}
 		else
 			push_b(stack_a, stack_b);

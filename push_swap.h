@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/01 21:48:45 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/04 04:37:35 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_node
 	struct s_node	*prev;
 	int				num;
 	unsigned int	rank;
-	struct s_node	*path;
-	struct s_node	*potential_path;
+	unsigned int	l_i_s_length;
+	struct s_node	*l_i_s_next;
 	struct s_node	*next;
 }				t_node;
 
