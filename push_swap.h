@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/04 04:37:35 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/04 13:50:37 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ typedef struct s_list
 /*utils*/
 void			print_stacks(t_list *stack_a, t_list *stack_b);
 void			print_ranks(t_list *stack_a, t_list *stack_b);
-void			print_subsequence(t_list *stack_a);
+void			print_subsequence(t_node *l_i_s_start);
+void			print_ranks_and_l_i_s(t_list *stack_a);
 bool			is_sorted(t_list *stack, unsigned int numnum);
 /*algorithm stuff*/
 void			basic_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum);

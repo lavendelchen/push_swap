@@ -6,16 +6,16 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 20:41:09 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/04 04:58:53 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/04 14:32:18 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*find_l_i_s(t_list *stack_a)
+void	assign_l_i_s(t_list *stack_a)
 {
-	t_node	*iter;
 	t_node	*search;
+	t_node	*iter;
 
 	iter = stack_a->tail;
 	while (iter != NULL)
@@ -34,15 +34,32 @@ t_node	*find_l_i_s(t_list *stack_a)
 		}
 		iter = iter->prev;
 	}
-	print_l_i_s(stack_a); //
-	return (iter);
+}
+
+t_node	*find_l_i_s(t_list *stack_a)
+{
+	t_node	*iter;
+	t_node	*l_i_s;
+
+	assign_l_i_s(stack_a);
+	l_i_s = stack_a->head;
+	iter = stack_a->head;
+	while (iter != NULL)
+	{
+		if (iter->l_i_s_length > l_i_s->l_i_s_length)
+			l_i_s = iter;
+		iter = iter->next;
+	}
+	print_ranks_and_l_i_s(stack_a); //
+	print_subsequence(l_i_s);
+	return (l_i_s);
 }
 
 void	init_stacks(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 {
-	t_node		*iter;
-	t_node		*next;
-	t_node		*l_i_s;
+	t_node			*iter;
+	t_node			*next;
+	t_node			*l_i_s;
 	unsigned int	i;
 
 	i = 0;
