@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 20:39:24 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/04 20:40:01 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/06 00:04:41 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	init_stacks(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 		next = iter->next;
 		if (iter == l_i_s)
 		{
-			rotate_a(stack_a);
+			rotate_a(stack_a, stack_b);
 			l_i_s = l_i_s->l_i_s_next;
 		}
 		else

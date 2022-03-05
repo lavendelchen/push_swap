@@ -6,16 +6,17 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:26:49 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/04 19:48:41 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/06 00:03:20 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rotate_a(t_list *stack_a)
+void	rotate_a(t_list *stack_a, t_list *stack_b)
 {
 	t_node	*rotate;
 
+	(void)stack_b;
 	rotate = stack_a->head;
 	ps_lstrm_head(stack_a);
 	ps_lstadd_tail(stack_a, rotate);
@@ -23,10 +24,11 @@ void	rotate_a(t_list *stack_a)
 	//print_ranks(stack_a, NULL);
 }
 
-void	rotate_b(t_list *stack_b)
+void	rotate_b(t_list *stack_a, t_list *stack_b)
 {
 	t_node	*rotate;
 
+	(void)stack_a;
 	rotate = stack_b->head;
 	ps_lstrm_head(stack_b);
 	ps_lstadd_tail(stack_b, rotate);

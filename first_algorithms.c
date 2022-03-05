@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 22:18:20 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/01 20:14:39 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/06 00:05:06 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	basic_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 			rank++;
 		}
 		else
-			rotate_a(stack_a);
+			rotate_a(stack_a, stack_b);
 	}
 	while (stack_b->head != NULL)
 		push_a(stack_a, stack_b);
@@ -61,19 +61,19 @@ void	random_sort(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 				swap_ab(stack_a, stack_b);
 				break;
 			case 5:
-				rotate_a(stack_a);
+				rotate_a(stack_a, stack_b);
 				break;
 			case 6:
-				rotate_b(stack_b);
+				rotate_b(stack_a, stack_b);
 				break;
 			case 7:
 				rotate_ab(stack_a, stack_b);
 				break;
 			case 8:
-				reverse_rotate_a(stack_a);
+				reverse_rotate_a(stack_a, stack_b);
 				break;
 			case 9:
-				reverse_rotate_b(stack_b);
+				reverse_rotate_b(stack_a, stack_b);
 				break;
 			case 10:
 				reverse_rotate_ab(stack_a, stack_b);

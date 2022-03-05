@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/04 21:11:56 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/06 00:01:30 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <sys/time.h>
+
+typedef struct s_sums
+{
+	unsigned int	ra_rrb;
+	unsigned int	rra_rb;
+	unsigned int	ra_rb;
+	unsigned int	rra_rrb;
+}				t_sums;
 
 typedef struct s_sort
 {
@@ -48,7 +56,6 @@ typedef struct s_list
 	t_node	*head;
 	t_node	*tail;
 }				t_list;
-
 
 /*utils*/
 void			print_stacks(t_list *stack_a, t_list *stack_b);
@@ -82,11 +89,11 @@ void			push_b(t_list *stack_a, t_list *stack_b);
 void			swap_a(t_list *stack_a);
 void			swap_b(t_list *stack_b);
 void			swap_ab(t_list *stack_a, t_list *stack_b);
-void			rotate_a(t_list *stack_a);
-void			rotate_b(t_list *stack_b);
+void			rotate_a(t_list *stack_a, t_list *stack_b);
+void			rotate_b(t_list *stack_a, t_list *stack_b);
 void			rotate_ab(t_list *stack_a, t_list *stack_b);
-void			reverse_rotate_a(t_list *stack_a);
-void			reverse_rotate_b(t_list *stack_b);
+void			reverse_rotate_a(t_list *stack_a, t_list *stack_b);
+void			reverse_rotate_b(t_list *stack_a, t_list *stack_b);
 void			reverse_rotate_ab(t_list *stack_a, t_list *stack_b);
 
 #endif
