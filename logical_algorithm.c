@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 23:18:45 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 00:13:31 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/06 20:14:37 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ void	calculate_seperate_rotations(t_node *node, t_sort *sort, t_list *stack_a, t
 {
 	t_node	*bottom;
 
+	printf("---------------------------------------------------------------------------------\n");
 	bottom = find_bottom(stack_a, node);
 	sort->rb = calculate_rotate(node, stack_b);
 	sort->rrb = calculate_reverse_rotate(node, stack_b);
@@ -188,8 +189,6 @@ void	calculate_sort_for_node(t_node *node, t_sort *sort, t_list *stack_a, t_list
 	sums.ra_rb = add_rotate(&node->sort);
 	sums.rra_rrb = add_reverse_rotate(&node->sort);
 	correct_sort_to_shortest_path(&sums, sort);
-	//printf("\e[32m%4d\e[0m rr: %4d, rrr: %4d, rb: %4d, rrb: %4d, ra: %4d, rra: %4d, sum: %4d\n", node->rank, sort->rr, sort->rrr, sort->rb, sort->rrb, sort->ra, sort->rra, sort->sum);
-	//printf("---------------------------------------------------------------------------------\n");
 }
 
 t_node	*calculate_sort(t_list *stack_a, t_list *stack_b) // have to change it every time
@@ -202,12 +201,13 @@ t_node	*calculate_sort(t_list *stack_a, t_list *stack_b) // have to change it ev
 	while (iter != NULL)
 	{
 		calculate_sort_for_node(iter, &iter->sort, stack_a, stack_b);
+		printf("\e[32m%4d\e[0m rr: %4d, rrr: %4d, rb: %4d, rrb: %4d, ra: %4d, rra: %4d, sum: \e[91m%4d\e[0m\n", iter->rank, iter->sort.rr, iter->sort.rrr, iter->sort.rb, iter->sort.rrb, iter->sort.ra, iter->sort.rra, iter->sort.sum);
+		printf("---------------------------------------------------------------------------------\n");
 		if (iter->sort.sum < shortest->sort.sum)
 			shortest = iter;
 		iter = iter->next;
 	}
 	return (shortest);
-	//then see which one's the shortest sum
 }
 
 void	do_operation_number_of_times(int operation, unsigned int times, t_list *stack_a, t_list *stack_b)
@@ -238,20 +238,21 @@ void	do_operation_number_of_times(int operation, unsigned int times, t_list *sta
 void	logical_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 {
 	t_node	*sort;
-	int		i;
 
 	init_stacks(stack_a, stack_b, numnum);
 	print_ranks(stack_a, stack_b);
-	i = 0;
 	while (stack_b->head != NULL)
 	{
 		sort = calculate_sort(stack_a, stack_b);
+		printf("\e[32m%4d\e[0m rr: %4d, rrr: %4d, rb: %4d, rrb: %4d, ra: %4d, rra: %4d, sum: %4d\n", sort->rank, sort->sort.rr, sort->sort.rrr, sort->sort.rb, sort->sort.rrb, sort->sort.ra, sort->sort.rra, sort->sort.sum);
+		printf("---------------------------------------------------------------------------------\n");
 		do_operation_number_of_times(0, sort->sort.rr, stack_a, stack_b);
 		do_operation_number_of_times(1, sort->sort.rrr, stack_a, stack_b);
 		do_operation_number_of_times(2, sort->sort.rb, stack_a, stack_b);
 		do_operation_number_of_times(3, sort->sort.rrb, stack_a, stack_b);
 		do_operation_number_of_times(4, sort->sort.ra, stack_a, stack_b);
 		do_operation_number_of_times(5, sort->sort.rra, stack_a, stack_b);
+		push_a(stack_a, stack_b);
 	}
 }
 

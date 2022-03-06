@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 20:39:24 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 00:04:41 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/06 19:29:39 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static t_node	*find_l_i_s(t_list *stack_a)
 			l_i_s = iter;
 		iter = iter->next;
 	}
-	//print_ranks_and_l_i_s(stack_a); //
+	print_ranks_and_l_i_s(stack_a); //
 	//print_subsequence(l_i_s);
 	return (l_i_s);
 }
