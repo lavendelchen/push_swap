@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 23:18:45 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 20:14:37 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/06 20:50:27 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,18 +123,16 @@ void	calculate_seperate_rotations(t_node *node, t_sort *sort, t_list *stack_a, t
 	sort->rra = calculate_reverse_rotate(bottom, stack_a);
 }
 
-void	simple_paths(t_sums *sums, t_sort *sort)
+void	simple_paths(t_shortest_path *shortest_path, t_sort *sort)
 {
-	if (sums->ra_rrb <= sums->rra_rb && \
-		sums->ra_rrb <= sums->ra_rb && sums->ra_rrb <= sums->rra_rrb)
+	if (shortest_path->type == 0)
 	{
 		sort->rr = 0;
 		sort->rrr = 0;
 		sort->rb = 0;
 		sort->rra = 0;
 	}
-	else if (sums->rra_rb <= sums->ra_rrb && \
-		sums->rra_rb <= sums->ra_rb && sums->rra_rb <= sums->rra_rrb)
+	else if (shortest_path->type == 1)
 	{
 		sort->rr = 0;
 		sort->rrr = 0;
@@ -143,14 +141,9 @@ void	simple_paths(t_sums *sums, t_sort *sort)
 	}
 }
 
-void	complicated_paths(t_sums *sums, t_sort *sort)
+void	complicated_paths(t_shortest_path *shortest_path, t_sort *sort)
 {
-	if (sums->ra_rb <= sums->ra_rrb && \
-		sums->ra_rb <= sums->rra_rb && sums->ra_rb <= sums->rra_rrb  && \
-		!(sums->ra_rrb <= sums->rra_rb && \
-		sums->ra_rrb <= sums->ra_rb && sums->ra_rrb <= sums->rra_rrb) && \
-		!(sums->rra_rb <= sums->ra_rrb && \
-		sums->rra_rb <= sums->ra_rb && sums->rra_rb <= sums->rra_rrb))
+	if (shortest_path->type == 2)
 	{
 		sort->ra = sort->ra - sort->rr;
 		sort->rb = sort->rb - sort->rr;
@@ -158,10 +151,7 @@ void	complicated_paths(t_sums *sums, t_sort *sort)
 		sort->rrb = 0;
 		sort->rra = 0;
 	}
-	else if (!(sums->ra_rrb <= sums->rra_rb && \
-		sums->ra_rrb <= sums->ra_rb && sums->ra_rrb <= sums->rra_rrb) && \
-		!(sums->rra_rb <= sums->ra_rrb && \
-		sums->rra_rb <= sums->ra_rb && sums->rra_rb <= sums->rra_rrb))
+	else if (shortest_path->type == 3)
 	{
 		sort->rra = sort->rra - sort->rrr;
 		sort->rrb = sort->rrb - sort->rrr;
@@ -171,27 +161,51 @@ void	complicated_paths(t_sums *sums, t_sort *sort)
 	}
 }
 
-void	correct_sort_to_shortest_path(t_sums *sums, t_sort *sort)
+void	correct_sort_to_shortest_path(t_shortest_path *shortest_path, t_sort *sort)
 {
-	simple_paths(sums, sort);
-	complicated_paths(sums, sort);
+	simple_paths(shortest_path, sort);
+	complicated_paths(shortest_path, sort);
 	sort->sum = sort->rr + sort->rrr + sort->rb + \
 			sort->rrb + sort->ra + sort->rra;
 }
 
-void	calculate_sort_for_node(t_node *node, t_sort *sort, t_list *stack_a, t_list *stack_b)
+t_shortest_path	find_shortest_path(t_sort *sort, t_shortest_path *shortest_path)
 {
 	t_sums	sums;
 
-	calculate_seperate_rotations(node, sort, stack_a, stack_b);
 	sums.ra_rrb = sort->ra + sort->rrb;
+	shortest_path->length = sums.ra_rrb;
+	shortest_path->type = 0;
 	sums.rra_rb = sort->rra + sort->rb;
-	sums.ra_rb = add_rotate(&node->sort);
-	sums.rra_rrb = add_reverse_rotate(&node->sort);
-	correct_sort_to_shortest_path(&sums, sort);
+	if (sums.rra_rb < shortest_path->length)
+	{
+		shortest_path->length = sums.rra_rb;
+		shortest_path->type = 1;
+	}
+	sums.ra_rb = add_rotate(sort);
+	if (sums.rra_rb < shortest_path->length)
+	{
+		shortest_path->length = sums.rra_rb;
+		shortest_path->type = 2;
+	}
+	sums.rra_rrb = add_reverse_rotate(sort);
+	if (sums.rra_rb < shortest_path->length)
+	{
+		shortest_path->length = sums.rra_rb;
+		shortest_path->type = 3;
+	}
 }
 
-t_node	*calculate_sort(t_list *stack_a, t_list *stack_b) // have to change it every time
+void	calculate_sort_for_node(t_node *node, t_sort *sort, t_list *stack_a, t_list *stack_b)
+{
+	t_shortest_path	shortest_path;
+
+	calculate_seperate_rotations(node, sort, stack_a, stack_b);
+	find_shortest_path(sort, &shortest_path);
+	correct_sort_to_shortest_path(&shortest_path, sort);
+}
+
+t_node	*calculate_sort(t_list *stack_a, t_list *stack_b)
 {
 	t_node	*iter;
 	t_node	*shortest;
