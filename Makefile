@@ -6,13 +6,13 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/03/05 23:36:23 by shaas            ###   ########.fr        #
+#    Updated: 2022/03/06 23:31:40 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-COMP = gcc -Wall -Wextra -Werror -g
+COMP = gcc -Wall -Wextra #-Werror -g
 
 LIBFT = libft/libft.a
 
@@ -23,11 +23,12 @@ list_handlers/ps_lstrm_tail.c list_handlers/ps_lstfree.c \
 operations/push.c operations/reverse_rotate.c operations/rotate.c operations/swap.c \
 utils/assign_ranks.c utils/parse_input.c utils/ps_atoi.c utils/error_exit.c \
 utils/is_sorted.c utils/print_stacks.c \
-first_algorithms.c logical_algorithm.c init_stacks.c
+first_algorithms.c logical_algorithm.c init_stacks.c set_sort_to_combination.c \
+calculate_seperate_rotations.c find_shortest_combination.c
 
 OBJ = $(SRC:.c=.o)
 
-ARG = 53 1 21 27 2 34 87 16 22 56 28 44 43 70 85 42 63 95 30 46 49 35 61 65 83 52 24 69 71 33
+ARG = 3 1 2
 
 all: $(NAME)
 

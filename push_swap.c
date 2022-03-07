@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:59:41 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 19:29:39 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/06 22:55:27 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 	stack_b.tail = NULL;
 	parse_input(argc, argv, &stack_a);
 	numnum = assign_ranks(&stack_a);
-	print_ranks(&stack_a, &stack_b);
 	logical_algorithm(&stack_a, &stack_b, numnum);
 	exit_cleanly(&stack_a, &stack_b, EXIT_SUCCESS);
 }

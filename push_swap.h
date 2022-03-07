@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 20:41:21 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/06 23:03:06 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ void			basic_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum);
 void			random_sort(t_list *stack_a, t_list *stack_b, unsigned int numnum);
 void			logical_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum);
 void			init_stacks(t_list *stack_a, t_list *stack_b, unsigned int numnum);
+void			find_shortest_combination(t_sort *sort, t_shortest_path *shortest_path);
+void			calculate_seperate_rotations(t_node *node, t_sort *sort, t_list *stack_a, t_list *stack_b);
+void			set_sort_to_combination(t_shortest_path *shortest_path, t_sort *sort);
+unsigned int	calculate_rotate(t_node *node, t_list *stack);
+unsigned int	calculate_reverse_rotate(t_node *node, t_list *stack);
 /*needed to parse input*/
 void			parse_input(int argc, char **argv, t_list *stack_a);
 int				ps_atoi(const char *str, t_list *stack_a);
