@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 23:18:45 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 23:35:44 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 00:23:17 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 what to do: 
-- make logical algorithm function prettier
+- new files for big file
 - macro for operations & combination types
 - norm in general
 - make small algos
@@ -49,24 +49,11 @@ t_node	*calculate_sort(t_list *stack_a, t_list *stack_b)
 	return (shortest);
 }
 
-void	do_operation_number_of_times(int operation, unsigned int times, t_list *stack_a, t_list *stack_b)
+void	do_operation_number_of_times(void (*function)(t_list *, t_list *), unsigned int times, t_list *stack_a, t_list *stack_b)
 {
-	void			(*function)(t_list *, t_list *);
 	unsigned int	i;
 
 	i = 0;
-	if (operation == 0)
-		function = &rotate_ab;
-	else if (operation == 1)
-		function = &reverse_rotate_ab;
-	else if (operation == 2)
-		function = &rotate_b;
-	else if (operation == 3)
-		function = &reverse_rotate_b;
-	else if (operation == 4)
-		function = &rotate_a;
-	else if (operation == 5)
-		function = &reverse_rotate_a;
 	while (i < times)
 	{
 		function(stack_a, stack_b);
@@ -74,33 +61,81 @@ void	do_operation_number_of_times(int operation, unsigned int times, t_list *sta
 	}
 }
 
-void	logical_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
+void	push_all_to_a_efficiently(t_list *stack_a, t_list *stack_b)
 {
-	t_node			*sort;
-	unsigned int	end_ra;
-	unsigned int	end_rra;
+	t_node	*sort;
 
-	init_stacks(stack_a, stack_b, numnum);
 	while (stack_b->head != NULL)
 	{
 		sort = calculate_sort(stack_a, stack_b);
-		do_operation_number_of_times(0, sort->sort.rr, stack_a, stack_b);
-		do_operation_number_of_times(1, sort->sort.rrr, stack_a, stack_b);
-		do_operation_number_of_times(2, sort->sort.rb, stack_a, stack_b);
-		do_operation_number_of_times(3, sort->sort.rrb, stack_a, stack_b);
-		do_operation_number_of_times(4, sort->sort.ra, stack_a, stack_b);
-		do_operation_number_of_times(5, sort->sort.rra, stack_a, stack_b);
+		do_operation_number_of_times(rotate_ab, sort->sort.rr, stack_a, stack_b);
+		do_operation_number_of_times(reverse_rotate_ab, sort->sort.rrr, stack_a, stack_b);
+		do_operation_number_of_times(rotate_b, sort->sort.rb, stack_a, stack_b);
+		do_operation_number_of_times(reverse_rotate_b, sort->sort.rrb, stack_a, stack_b);
+		do_operation_number_of_times(rotate_a, sort->sort.ra, stack_a, stack_b);
+		do_operation_number_of_times(reverse_rotate_a, sort->sort.rra, stack_a, stack_b);
 		push_a(stack_a, stack_b);
 	}
-	sort = stack_a->head;
-	while (sort->rank != 0)
-		sort = sort->next;
-	end_ra = calculate_rotate(sort, stack_a);
-	end_rra = calculate_reverse_rotate(sort, stack_a);
+}
+
+void	rotate_a_to_correct_order(t_list *stack_a, t_list *stack_b)
+{
+	t_node			*smallest;
+	unsigned int	end_ra;
+	unsigned int	end_rra;
+
+	smallest = stack_a->head;
+	while (smallest->rank != 0)
+		smallest = smallest->next;
+	end_ra = calculate_rotate(smallest, stack_a);
+	end_rra = calculate_reverse_rotate(smallest, stack_a);
 	if (end_ra <= end_rra)
-		do_operation_number_of_times(4, end_ra, stack_a, stack_b);
+		do_operation_number_of_times(rotate_a, end_ra, stack_a, stack_b);
 	else
-		do_operation_number_of_times(5, end_rra, stack_a, stack_b);
+		do_operation_number_of_times(reverse_rotate_a, end_rra, stack_a, stack_b);
+}
+
+void	big_sort(t_list *stack_a, t_list *stack_b, unsigned int numnum)
+{
+	init_l_i_s(stack_a, stack_b, numnum);
+	push_all_to_a_efficiently(stack_a, stack_b);
+	rotate_a_to_correct_order(stack_a, stack_b);
+}
+
+void	small_sort(t_list *stack_a, t_list *stack_b, unsigned int numnum)
+{
+	unsigned int	pushb;
+	unsigned int	first;
+	unsigned int	second;
+	unsigned int	third;
+
+	pushb = numnum - 3;
+	while (pushb > 0)
+	{
+		push_b(stack_a, stack_b);
+		pushb--;
+	}
+	first = stack_a->head->rank;
+	second = stack_a->head->next->rank;
+	third = stack_a->tail->rank;
+	if (first < third && third < second)
+		swap_a(stack_a);
+	else if (second < first && first < third)
+		swap_a(stack_a);
+	else if (third < second && second < first)
+		swap_a(stack_a);
+	push_all_to_a_efficiently(stack_a, stack_b);
+	rotate_a_to_correct_order(stack_a, stack_b);
+}
+
+void	logical_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
+{
+	if (numnum == 2)
+		swap_a(stack_a);
+	else if (numnum <= 9) //need to see what is more efficient, which numbers to add
+		small_sort(stack_a, stack_b, numnum);
+	else
+		big_sort(stack_a, stack_b, numnum);
 }
 
 //python3 pyviz.py `ruby -e "puts (1..50).to_a.shuffle.join(' ')"`

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stacks.c                                      :+:      :+:    :+:   */
+/*   init_l_i_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 20:39:24 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 22:55:14 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 00:17:24 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static t_node	*find_l_i_s(t_list *stack_a)
 	return (l_i_s);
 }
 
-void	init_stacks(t_list *stack_a, t_list *stack_b, unsigned int numnum)
+void	init_l_i_s(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 {
 	t_node			*iter;
 	t_node			*next;
