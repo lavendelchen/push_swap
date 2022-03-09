@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:51:43 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/01 20:48:36 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 18:07:13 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,17 @@ static int	ps_whitespace(char c)
 		return (0);
 }
 
-int	ps_atoi(const char *str, t_list *stack_a)
+static void	check_sign(char **str, int *sign)
+{
+	if (**str == '+' || **str == '-')
+	{
+		if (**str == '-')
+			*sign = -1;
+		(*str)++;
+	}
+} //let's hope this works
+
+int	ps_atoi(char *str, t_list *stack_a)
 {
 	long long	i;
 	int			sign;
@@ -30,12 +40,7 @@ int	ps_atoi(const char *str, t_list *stack_a)
 	sign = 1;
 	while (ps_whitespace(*str) == 1)
 		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
+	check_sign(&str, &sign);
 	if (*str < '0' || *str > '9')
 		error_exit(stack_a, NULL);
 	while (ps_whitespace(*str) == 0 && *str != '\0')
