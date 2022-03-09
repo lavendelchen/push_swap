@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 19:48:00 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/01 20:48:17 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 18:15:45 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ static t_node	*find_biggest_number_in_stack(t_list *stack)
 	return (biggest);
 }
 
+static void	init_values(t_node **iter, t_node **smallest, \
+t_list *stack_a, t_node *biggest)
+{
+	*iter = stack_a->head;
+	*smallest = biggest;
+}
+
 static unsigned int	actually_assign_ranks(t_list *stack_a, unsigned int rank, \
 									t_node *smaller, t_node *biggest)
 {
@@ -37,13 +44,12 @@ static unsigned int	actually_assign_ranks(t_list *stack_a, unsigned int rank, \
 
 	while (true)
 	{
-		iter = stack_a->head;
-		smallest = biggest;
+		init_values(&iter, &smallest, stack_a, biggest);
 		done_sth = false;
 		while (iter != NULL)
 		{
 			if (iter->num <= smallest->num && \
-				(smaller == NULL || iter->num > smaller->num))
+			(smaller == NULL || iter->num > smaller->num))
 			{
 				smallest = iter;
 				done_sth = true;

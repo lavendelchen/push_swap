@@ -6,13 +6,14 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 17:21:47 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/09 17:26:53 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 17:53:58 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	calculate_sort_for_node(t_node *node, t_sort *sort, t_list *stack_a, t_list *stack_b)
+static void	calculate_sort_for_node( \
+t_node *node, t_sort *sort, t_list *stack_a, t_list *stack_b)
 {
 	t_shortest_path	shortest_path;
 
@@ -45,12 +46,16 @@ void	push_all_to_a_efficiently(t_list *stack_a, t_list *stack_b)
 	while (stack_b->head != NULL)
 	{
 		sort = calculate_sort(stack_a, stack_b);
-		do_operation_number_of_times(rotate_ab, sort->sort.rr, stack_a, stack_b);
-		do_operation_number_of_times(reverse_rotate_ab, sort->sort.rrr, stack_a, stack_b);
+		do_operation_number_of_times(\
+rotate_ab, sort->sort.rr, stack_a, stack_b);
+		do_operation_number_of_times(\
+reverse_rotate_ab, sort->sort.rrr, stack_a, stack_b);
 		do_operation_number_of_times(rotate_b, sort->sort.rb, stack_a, stack_b);
-		do_operation_number_of_times(reverse_rotate_b, sort->sort.rrb, stack_a, stack_b);
+		do_operation_number_of_times(\
+reverse_rotate_b, sort->sort.rrb, stack_a, stack_b);
 		do_operation_number_of_times(rotate_a, sort->sort.ra, stack_a, stack_b);
-		do_operation_number_of_times(reverse_rotate_a, sort->sort.rra, stack_a, stack_b);
+		do_operation_number_of_times(\
+reverse_rotate_a, sort->sort.rra, stack_a, stack_b);
 		push_a(stack_a, stack_b);
 	}
 }

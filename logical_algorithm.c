@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 23:18:45 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/09 17:39:03 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 17:55:57 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ what to do:
 - checker? nahh idc
 */
 
-void	do_operation_number_of_times(void (*function)(t_list *, t_list *), unsigned int times, t_list *stack_a, t_list *stack_b)
+void	do_operation_number_of_times(void (*function)(t_list *, t_list *), \
+unsigned int times, t_list *stack_a, t_list *stack_b)
 {
 	unsigned int	i;
 
@@ -48,7 +49,8 @@ void	rotate_a_to_correct_order(t_list *stack_a, t_list *stack_b)
 	if (end_ra <= end_rra)
 		do_operation_number_of_times(rotate_a, end_ra, stack_a, stack_b);
 	else
-		do_operation_number_of_times(reverse_rotate_a, end_rra, stack_a, stack_b);
+		do_operation_number_of_times(\
+reverse_rotate_a, end_rra, stack_a, stack_b);
 }
 
 void	logical_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
