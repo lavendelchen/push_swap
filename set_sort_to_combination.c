@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 21:50:45 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 22:23:31 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 17:37:49 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ static void	set_sort_to_rra_rrb(t_sort *sort)
 
 void	set_sort_to_combination(t_shortest_path *shortest_path, t_sort *sort)
 {
-	if (shortest_path->type == 0)
+	if (shortest_path->type == RA_RRB)
 		set_sort_to_ra_rrb(sort);
-	else if (shortest_path->type == 1)
+	else if (shortest_path->type == RRA_RB)
 		set_sort_to_rra_rb(sort);
-	else if (shortest_path->type == 2)
+	else if (shortest_path->type == RA_RB)
 		set_sort_to_ra_rb(sort);
-	else if (shortest_path->type == 3)
+	else if (shortest_path->type == RRA_RRB)
 		set_sort_to_rra_rrb(sort);
 	sort->sum = shortest_path->length;
 }

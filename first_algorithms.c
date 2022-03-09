@@ -6,12 +6,11 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 22:18:20 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 00:05:06 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 17:20:06 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	basic_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum)
 {

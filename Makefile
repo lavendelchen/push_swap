@@ -6,7 +6,7 @@
 #    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/03/09 00:16:37 by shaas            ###   ########.fr        #
+#    Updated: 2022/03/09 17:26:34 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ operations/push.c operations/reverse_rotate.c operations/rotate.c operations/swa
 utils/assign_ranks.c utils/parse_input.c utils/ps_atoi.c utils/error_exit.c \
 utils/is_sorted.c utils/print_stacks.c \
 first_algorithms.c logical_algorithm.c init_l_i_s.c set_sort_to_combination.c \
-calculate_seperate_rotations.c find_shortest_combination.c
+calculate_seperate_rotations.c find_shortest_combination.c init_three_sort.c \
+push_all_to_a_efficiently.c
 
 OBJ = $(SRC:.c=.o)
 

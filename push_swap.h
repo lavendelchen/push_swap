@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/08 23:46:35 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 17:42:41 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <sys/time.h>
+
+# define RA_RRB 0
+# define RRA_RB 1
+# define RA_RB 2
+# define RRA_RRB 3
 
 typedef struct s_sums
 {
@@ -70,15 +75,25 @@ void			print_subsequence(t_node *l_i_s_start);
 void			print_ranks_and_l_i_s(t_list *stack_a);
 bool			is_sorted(t_list *stack, unsigned int numnum);
 /*algorithm stuff*/
-void			basic_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum);
-void			random_sort(t_list *stack_a, t_list *stack_b, unsigned int numnum);
-void			logical_algorithm(t_list *stack_a, t_list *stack_b, unsigned int numnum);
-void			init_l_i_s(t_list *stack_a, t_list *stack_b, unsigned int numnum);
-void			find_shortest_combination(t_sort *sort, t_shortest_path *shortest_path);
-void			calculate_seperate_rotations(t_node *node, t_sort *sort, t_list *stack_a, t_list *stack_b);
-void			set_sort_to_combination(t_shortest_path *shortest_path, t_sort *sort);
+void			basic_algorithm(t_list *stack_a, t_list *stack_b, \
+												unsigned int numnum);
+void			random_sort(t_list *stack_a, t_list *stack_b, \
+											unsigned int numnum);
+void			logical_algorithm(t_list *stack_a, t_list *stack_b, \
+													unsigned int numnum);
+void			init_l_i_s(t_list *stack_a, t_list *stack_b, \
+											unsigned int numnum);
+void			init_three_sort(t_list *stack_a, t_list *stack_b, \
+												unsigned int numnum);
+void			find_shortest_combination(t_sort *sort, \
+							t_shortest_path *shortest_path);
+void			push_all_to_a_efficiently(t_list *stack_a, t_list *stack_b);
+void			calculate_seperate_rotations(t_node *node, t_sort *sort, \
+											t_list *stack_a, t_list *stack_b);
+void			set_sort_to_combination(t_shortest_path *shortest_path, \t_sort *sort);
 unsigned int	calculate_rotate(t_node *node, t_list *stack);
 unsigned int	calculate_reverse_rotate(t_node *node, t_list *stack);
+void			do_operation_number_of_times(void (*function)(t_list *, t_list *), unsigned int times, t_list *stack_a, t_list *stack_b);
 /*needed to parse input*/
 void			parse_input(int argc, char **argv, t_list *stack_a);
 int				ps_atoi(const char *str, t_list *stack_a);

@@ -6,13 +6,11 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 22:22:38 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/06 22:23:24 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 17:37:12 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 unsigned int	add_reverse_rotate(t_sort *sort)
 {
@@ -50,27 +48,27 @@ unsigned int	add_rotate(t_sort *sort)
 
 void	find_shortest_combination(t_sort *sort, t_shortest_path *shortest_path)
 {
-	t_sums			sums;
+	t_sums	sums;
 
 	sums.ra_rrb = sort->ra + sort->rrb;
 	shortest_path->length = sums.ra_rrb;
-	shortest_path->type = 0;
+	shortest_path->type = RA_RRB;
 	sums.rra_rb = sort->rra + sort->rb;
 	if (sums.rra_rb < shortest_path->length)
 	{
 		shortest_path->length = sums.rra_rb;
-		shortest_path->type = 1;
+		shortest_path->type = RRA_RB;
 	}
 	sums.ra_rb = add_rotate(sort);
 	if (sums.ra_rb < shortest_path->length)
 	{
 		shortest_path->length = sums.ra_rb;
-		shortest_path->type = 2;
+		shortest_path->type = RA_RB;
 	}
 	sums.rra_rrb = add_reverse_rotate(sort);
 	if (sums.rra_rrb < shortest_path->length)
 	{
 		shortest_path->length = sums.rra_rrb;
-		shortest_path->type = 3;
+		shortest_path->type = RRA_RRB;
 	}
 }
