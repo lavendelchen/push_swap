@@ -6,13 +6,14 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:20:54 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/04 14:09:41 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 18:30:54 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	print_stacks(t_list *stack_a, t_list *stack_b) // needs to be removed when submitting, norm error
+/*
+void	print_stacks(t_list *stack_a, t_list *stack_b)
 {
 	t_node *iter_a;
 	t_node *iter_b;
@@ -61,7 +62,7 @@ void	print_stacks(t_list *stack_a, t_list *stack_b) // needs to be removed when 
 	printf("\n");
 }
 
-void	print_ranks(t_list *stack_a, t_list *stack_b) // needs to be removed when submitting, norm error
+void	print_ranks(t_list *stack_a, t_list *stack_b)
 {
 	t_node *iter_a;
 	t_node *iter_b;
@@ -110,7 +111,7 @@ void	print_ranks(t_list *stack_a, t_list *stack_b) // needs to be removed when s
 	printf("\n");
 }
 
-void	print_subsequence(t_node *l_i_s_start) // needs to be removed when submitting, norm error
+void	print_subsequence(t_node *l_i_s_start)
 {
 	t_node *iter_a;
 
@@ -134,7 +135,7 @@ void	print_subsequence(t_node *l_i_s_start) // needs to be removed when submitti
 	printf("\n");
 }
 
-void	print_ranks_and_l_i_s(t_list *stack_a) // needs to be removed when submitting, norm error
+void	print_ranks_and_l_i_s(t_list *stack_a)
 {
 	t_node *iter_a;
 
@@ -158,3 +159,4 @@ void	print_ranks_and_l_i_s(t_list *stack_a) // needs to be removed when submitti
 	}
 	printf("\n");
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 20:08:00 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/01 20:08:20 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 18:31:05 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	is_sorted(t_list *stack, unsigned int numnum)
 
 	rank = 0;
 	iter = stack->head;
-	while (iter != NULL) // checks from 0 till the list ends (not very specific usecase)
+	while (iter != NULL)
 	{
 		if (iter->rank != rank)
 			return (false);

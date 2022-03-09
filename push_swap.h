@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:58:12 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/09 18:04:10 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 18:29:28 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,14 @@ typedef struct s_list
 }				t_list;
 
 /*utils*/
+/*
 void			print_stacks(t_list *stack_a, t_list *stack_b);
 void			print_ranks(t_list *stack_a, t_list *stack_b);
 void			print_subsequence(t_node *l_i_s_start);
 void			print_ranks_and_l_i_s(t_list *stack_a);
+*/
 bool			is_sorted(t_list *stack, unsigned int numnum);
 /*algorithm stuff*/
-void			basic_algorithm( \
-				t_list *stack_a, t_list *stack_b, unsigned int numnum);
-void			random_sort( \
-				t_list *stack_a, t_list *stack_b, unsigned int numnum);
 void			logical_algorithm( \
 				t_list *stack_a, t_list *stack_b, unsigned int numnum);
 void			init_l_i_s( \
@@ -102,7 +100,7 @@ void			parse_input(int argc, char **argv, t_list *stack_a);
 int				ps_atoi(char *str, t_list *stack_a);
 unsigned int	assign_ranks(t_list *stack_a);
 /*handle the two stacks*/
-t_node			*ps_lstnew(int num, t_list *stack_a, t_list *stack_b); // 💭 all nodes wil be allocated
+t_node			*ps_lstnew(int num, t_list *stack_a, t_list *stack_b);
 void			ps_lstinit(t_list *lst, t_node *new);
 void			ps_lstadd_tail(t_list *lst, t_node *new);
 void			ps_lstadd_head(t_list *lst, t_node *new);

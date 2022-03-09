@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:26:49 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/09 18:01:58 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 18:28:10 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	rotate_a(t_list *stack_a, t_list *stack_b)
 	ps_lstrm_head(stack_a);
 	ps_lstadd_tail(stack_a, rotate);
 	ft_putendl_fd("ra", 1);
-	//print_ranks(stack_a, stack_b);
 }
 
 void	rotate_b(t_list *stack_a, t_list *stack_b)
@@ -33,7 +32,6 @@ void	rotate_b(t_list *stack_a, t_list *stack_b)
 	ps_lstrm_head(stack_b);
 	ps_lstadd_tail(stack_b, rotate);
 	ft_putendl_fd("rb", 1);
-	//print_ranks(stack_a, stack_b);
 }
 
 void	rotate_ab(t_list *stack_a, t_list *stack_b)
@@ -47,5 +45,4 @@ void	rotate_ab(t_list *stack_a, t_list *stack_b)
 	ps_lstrm_head(stack_b);
 	ps_lstadd_tail(stack_b, rotate);
 	ft_putendl_fd("rr", 1);
-	//print_ranks(stack_a, stack_b);
 }

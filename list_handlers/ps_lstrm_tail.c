@@ -6,7 +6,7 @@
 /*   By: shaas <shaas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:35:24 by shaas             #+#    #+#             */
-/*   Updated: 2022/03/09 18:00:57 by shaas            ###   ########.fr       */
+/*   Updated: 2022/03/09 18:27:33 by shaas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ps_lstrm_tail(t_list *lst)
 {
 	if (lst->tail == NULL)
 		return ;
-	if (lst->tail->prev == NULL) // case that there is only on element right now
+	if (lst->tail->prev == NULL)
 	{
 		lst->head = NULL;
 		lst->tail = NULL;
