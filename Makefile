@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shaas <shaas@student.42.fr>                +#+  +:+       +#+         #
+#    By: shaas <shaas@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/13 22:43:00 by shaas             #+#    #+#              #
-#    Updated: 2022/03/09 17:26:34 by shaas            ###   ########.fr        #
+#    Updated: 2022/07/05 21:26:23 by shaas            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-COMP = gcc -Wall -Wextra -g #-Werror
+COMP = gcc -Wall -Wextra -Werror -g
 
 LIBFT = libft/libft.a
 
